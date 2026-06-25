@@ -61,6 +61,9 @@ press-freedom-analysis/
 ├── notebooks/
 │   └── press_freedom_analysis.ipynb  # Full analysis notebook
 │
+├── notebooks/
+│   └── press_freedom_analysis.ipynb  # Full analysis notebook
+│
 ├── README.md
 ├── requirements.txt
 └── .gitignore
