@@ -2,6 +2,17 @@
 
 Exploratory analysis of global press freedom patterns using the [Reporters Without Borders (RSF) Press Freedom Index](https://rsf.org/en/index), covering 179 countries over nine years.
 
+## Live Dashboard 
+
+An interactive Streamlit dashboard is available for exploring:
+- Global trends over time
+- Country-level trajectories
+- Regional comparisons
+- Clustering results
+- Statistical summaries
+
+https://press-freedom-dashboard.streamlit.app/
+
 ![Dashboard](outputs/press_freedom_dashboard.png)
 
 ---
@@ -52,17 +63,17 @@ This project demonstrates how statistical analysis and machine learning can be u
 press-freedom-analysis/
 │
 ├── data/
-│   └── clean_press_freedom.csv       # Cleaned RSF dataset (179 countries, 2013–2021)
+│   └── clean_press_freedom.csv 
 │
 ├── outputs/
-│   ├── country_features.csv          # Per-country clustering features (mean score, volatility, trend)
-│   └── press_freedom_dashboard.png   # 2×2 summary dashboard
+│   ├── country_features.csv       
+│   └── press_freedom_dashboard.png  
 │
 ├── notebooks/
-│   └── press_freedom_analysis.ipynb  # Full analysis notebook
+│   └── press_freedom_analysis.ipynb 
 │
-├── notebooks/
-│   └── press_freedom_analysis.ipynb  # Full analysis notebook
+├── app/
+│   └── streamlit_app.py 
 │
 ├── README.md
 ├── requirements.txt
@@ -76,13 +87,18 @@ press-freedom-analysis/
 **Requirements:** Python 3.9+
 
 ```bash
-git clone https://github.com/your-username/press-freedom-analysis.git
+git clone https://github.com/lant96/press-freedom-analysis.git
 cd press-freedom-analysis
 pip install -r requirements.txt
 jupyter notebook notebooks/press_freedom_analysis.ipynb
 ```
 
 The notebook fetches data directly from the Our World in Data API on first run — no manual download needed.
+
+To run the interactive dashboard locally:
+```bash
+streamlit run app/streamlit_app.py
+```
 
 ---
 
