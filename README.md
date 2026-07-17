@@ -1,15 +1,20 @@
-# Press Freedom Analysis (2013–2021)
+# Press Freedom Analysis
 
-Exploratory analysis of global press freedom patterns using the [Reporters Without Borders (RSF) Press Freedom Index](https://rsf.org/en/index), covering 179 countries over nine years.
+Press Freedom Analysis explores global press freedom patterns between 2013 and 2021 through statistical analysis, machine learning, and interactive visualisation.
 
-## Live Dashboard 
+**Research Question**
 
-An interactive Streamlit dashboard is available for exploring:
-- Global trends over time
-- Country-level trajectories
-- Regional comparisons
-- Clustering results
-- Statistical summaries
+> What long-term structural patterns emerge in global press freedom when combining statistical analysis with unsupervised machine learning?
+
+---
+
+## Overview
+
+This project analyses the Reporters Without Borders (RSF) Press Freedom Index for 179 countries over nine years. The analysis combines exploratory data analysis, statistical hypothesis testing, clustering, and interactive visualisation to investigate global trends and regional differences.
+
+An accompanying Streamlit dashboard allows users to explore country trajectories, regional comparisons, clustering results, and summary statistics through an interactive interface.
+
+**Live Dashboard**
 
 https://press-freedom-dashboard.streamlit.app/
 
@@ -17,64 +22,54 @@ https://press-freedom-dashboard.streamlit.app/
 
 ---
 
-## Research questions
+## Research Questions
 
-1. How has press freedom evolved globally between 2013 and 2021?
-2. Are there statistically significant differences between world regions?
-3. Which countries experienced the largest improvements or deteriorations?
-4. Can countries be grouped into meaningful clusters based on press freedom patterns?
+- How has global press freedom evolved between 2013 and 2021?
+- Are there statistically significant differences between world regions?
+- Which countries experienced the largest improvements or deteriorations?
+- Can countries be grouped into meaningful clusters based on their long-term press freedom profiles?
 
-> **Note:** Higher RSF scores indicate *worse* press freedom. An increase represents deterioration, while a decrease represents improvement.
+> **Note:** Higher RSF scores indicate worse press freedom. Lower scores represent better media freedom.
 
 ---
 
 ## Methods
 
-- **Data acquisition:** Public API (Our World in Data)
-- **Data cleaning:** pandas (type handling, missing values, validation)
-- **Exploratory analysis:** distribution analysis, normality testing (D’Agostino K²)
-- **Regional comparison:** Kruskal–Wallis test + effect size (ε²)
-- **Time-series analysis:** global trends, year-to-year stability, country-level change
-- **Clustering:** K-Means (k=4), StandardScaler, silhouette score evaluation
-- **Visualization:** matplotlib, seaborn, Plotly Express
+The analysis combines classical statistical methods with unsupervised machine learning.
+
+- Data acquisition from Our World in Data
+- Data cleaning and validation using pandas
+- Exploratory data analysis
+- Normality testing (D'Agostino K²)
+- Regional comparison using the Kruskal–Wallis test
+- Effect size estimation (ε²)
+- Time-series trend analysis
+- K-Means clustering
+- Interactive visualisation using Plotly and Streamlit
 
 ---
 
-## Key findings
+## Key Findings
 
-- **Country rankings are highly stable over time** (year-to-year correlation ≈ 0.99), with gradual rather than abrupt changes.
-- **Strong regional differences exist**, with statistically significant variation between world regions (ε² = 0.478).
-- Northern and Western Europe consistently show the lowest (best) press freedom scores, while parts of Africa, the Middle East, and Asia show the highest (worst).
-- **Four distinct country profiles emerge** from clustering, ranging from stable free environments to severely constrained systems, including a group showing long-term improvement.
-- Overall, press freedom changes are **slow-moving and structurally persistent** rather than volatile year-to-year shifts.
-
----
-
-## Why this matters
-
-This project demonstrates how statistical analysis and machine learning can be used to uncover structural patterns in global institutional indicators, highlighting long-term regional disparities and stability in governance-related metrics.
+- Country rankings remain highly stable over time.
+- Statistically significant regional differences exist across the world.
+- Northern and Western Europe consistently exhibit the strongest press freedom outcomes.
+- Four distinct country profiles emerge through clustering.
+- Changes in press freedom tend to be gradual rather than abrupt.
 
 ---
 
-## Project structure
-
+## Project Structure
 
 ```
 press-freedom-analysis/
 │
-├── data/
-│   └── clean_press_freedom.csv 
-│
-├── outputs/
-│   ├── country_features.csv       
-│   └── press_freedom_dashboard.png  
-│
-├── notebooks/
-│   └── press_freedom_analysis.ipynb 
-│
 ├── app/
-│   └── streamlit_app.py 
-│
+│   └── streamlit_app.py
+├── data/
+├── notebooks/
+│   └── press_freedom_analysis.ipynb
+├── outputs/
 ├── README.md
 ├── requirements.txt
 └── .gitignore
@@ -82,53 +77,69 @@ press-freedom-analysis/
 
 ---
 
-## Reproducing the analysis
+## Tech Stack
 
-**Requirements:** Python 3.9+
+- Python
+- Pandas
+- NumPy
+- SciPy
+- scikit-learn
+- Matplotlib
+- Plotly
+- Streamlit
+
+---
+
+## Getting Started
+
+Clone the repository and install the dependencies.
 
 ```bash
 git clone https://github.com/lant96/press-freedom-analysis.git
+
 cd press-freedom-analysis
+
 pip install -r requirements.txt
+```
+
+Run the notebook:
+
+```bash
 jupyter notebook notebooks/press_freedom_analysis.ipynb
 ```
 
-The notebook fetches data directly from the Our World in Data API on first run — no manual download needed.
+Launch the dashboard:
 
-To run the interactive dashboard locally:
 ```bash
 streamlit run app/streamlit_app.py
 ```
 
----
-
-## Requirements
-
-See [`requirements.txt`](requirements.txt). Core dependencies:
-
-- `pandas`, `numpy`
-- `matplotlib`, `seaborn`, `plotly`
-- `scipy`, `scikit-learn`
-- `country_converter`
-
----
-
-## Data source
-
-Reporters Without Borders — *Press Freedom Index*, via [Our World in Data](https://ourworldindata.org/press-freedom).
-
-The index is a composite expert-based metric. Results reflect associations rather than causal mechanisms, and changes in score do not necessarily indicate changes in underlying media conditions alone.
+The dataset is automatically retrieved from the Our World in Data API during the initial execution.
 
 ---
 
 ## Limitations
 
-- Limited to 2013–2021
-- No external covariates (GDP, democracy indices)
-- Regional grouping is simplified (UN macro-regions)
-- Index methodology may vary over time, affecting strict comparability
+- Analysis is limited to the 2013–2021 period.
+- No external socioeconomic indicators are incorporated.
+- Regional groupings are based on broad UN macro-regions.
+- The Press Freedom Index methodology may evolve.
+
 ---
 
-## License
+## Future Work
 
-MIT
+- Incorporate governance and economic indicators.
+- Explore temporal forecasting methods.
+- Compare alternative clustering techniques.
+- Extend the analysis with more recent RSF releases.
+
+---
+
+## Author
+
+Athanasia Lantouri
+
+Applied Machine Learning | Human-Centered AI | Interactive Systems
+
+GitHub: https://github.com/lant96
