@@ -140,6 +140,6 @@ The dataset is automatically retrieved from the Our World in Data API during the
 
 Athanasia Lantouri
 
-Applied Machine Learning | Human-Centered AI | Interactive Systems
+Applied Machine Learning · Human-Centered AI · Interactive Systems · Data Visualisation
 
 GitHub: https://github.com/lant96
